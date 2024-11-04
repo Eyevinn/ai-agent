@@ -53,6 +53,18 @@ Build app
 
 Output is placed in folder `out/` that is served by the API server.
 
+### Project layout
+
+```
+src/
+ +- server.ts  - server delivering web app in production build
+ +- api.ts
+ +- api_service.ts  - API service for web app. Service communicate with Open AI APIs
+ +- app/*.tsx - Web app
+ +- components/*.tsx
+ +- hooks/*.tsx
+```
+
 ## Contributing
 
 See [CONTRIBUTING](CONTRIBUTING.md)
