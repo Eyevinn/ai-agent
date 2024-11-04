@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "White-label AI chat service ready to be embedded on your site",
   "scripts": {
-    "test": "jest",
+    "test": "OPENAI_API_KEY=dummy jest",
     "prepare": "husky install",
     "lint": "eslint .",
     "pretty": "prettier --check --ignore-unknown .",

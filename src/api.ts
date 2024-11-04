@@ -15,7 +15,11 @@ export interface HealthcheckOptions {
   title: string;
 }
 
-const healthcheck: FastifyPluginCallback<HealthcheckOptions> = (fastify, opts, next) => {
+const healthcheck: FastifyPluginCallback<HealthcheckOptions> = (
+  fastify,
+  opts,
+  next
+) => {
   fastify.get<{ Reply: Static<typeof HelloWorld> }>(
     '/',
     {
@@ -62,10 +66,13 @@ export default (opts: ApiOptions) => {
   api.register(healthcheck, { prefix: '/api', title: opts.title });
   // register other API routes here
 
+  if (!process.env.OPENAI_API_KEY) {
+    throw new Error('OPENAI_API_KEY is required');
+  }
   api.register(apiService, {
     prefix: '/api/v1',
     openAiApiKey: process.env.OPENAI_API_KEY
   });
 
   return api;
-}
+};
