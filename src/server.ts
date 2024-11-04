@@ -1,6 +1,13 @@
+import fastifyStatic from '@fastify/static';
+import path from 'path';
 import api from './api';
 
-const server = api({ title: '@eyevinn/typescript-nodejs' });
+const server = api({ title: 'White Label AI chat service' });
+
+server.register(fastifyStatic, {
+  root: path.join(__dirname, '../out'),
+  prefix: '/'
+});
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 8000;
 
