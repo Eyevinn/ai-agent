@@ -63,7 +63,8 @@ export default (opts: ApiOptions) => {
   // register other API routes here
 
   api.register(apiService, {
-    prefix: '/api/v1'
+    prefix: '/api/v1',
+    openAiApiKey: process.env.OPENAI_API_KEY
   });
 
   return api;

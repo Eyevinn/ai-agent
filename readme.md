@@ -23,15 +23,35 @@ White-label AI chat service ready to be embedded on your site. Connect to your O
 
 ## Requirements
 
-<!--Add any external project dependencies such as node.js version etc here -->
+Open AI account
 
 ## Installation / Usage
 
-<!--Add clear instructions on how to use the project here -->
+```
+% npm install
+```
 
 ## Development
 
-<!--Add clear instructions on how to start development of the project here -->
+Start API service
+
+```
+% OPENAI_API_KEY=<api-key> npm start
+```
+
+Frontend in development mode on http://localhost:3000
+
+```
+% npm run dev:app
+```
+
+Build app
+
+```
+% npm run build:app
+```
+
+Output is placed in folder `out/` that is served by the API server.
 
 ## Contributing
 

@@ -1,3 +1,5 @@
+import { FastifyPluginCallback } from 'fastify';
+
 export interface ApiServiceOptions {
   openAiApiKey: string;
 }
