@@ -70,7 +70,7 @@ const aiMassage: FastifyPluginCallback = (fastify, opts, next) => {
   fastify.get('/chat', async (_, reply) => {
     await chat(reply, 'Hello');
   });
-  fastify.post('/chat/message', async (request, reply) => {
+  fastify.post('/send', async (request, reply) => {
     const userMessage = request.body as string;
     await chat(reply, userMessage);
   });
