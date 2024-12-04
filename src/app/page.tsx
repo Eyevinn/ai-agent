@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from 'react';
 import { Card, CardHeader, CardBody } from '@nextui-org/card';
 import { Button, Spacer } from '@nextui-org/react';
 import { IconArrowUp, IconTrash } from '@tabler/icons-react';
-import { TextArea } from '@/components/Textearea';
+import { Textarea } from '@nextui-org/input';
 
 export default function Page() {
   const [response, setResponse] = useState('');
@@ -11,7 +11,7 @@ export default function Page() {
   const [input, setInput] = useState('');
   const [error, setError] = useState('');
 
-  const handleInputChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
   };
 
@@ -51,7 +51,7 @@ export default function Page() {
           {response && <p>{response}</p>}
         </CardBody>
         <div className="flex bg-gray-200 flex-grow items-center p-2 overflow-scroll">
-          <TextArea
+          <Textarea
             onChange={handleInputChange}
             type="text"
             placeholder="Type your question..."
