@@ -7,7 +7,6 @@ import { Static, Type } from '@sinclair/typebox';
 import { FastifyPluginCallback } from 'fastify';
 import apiService from './api_service';
 
-const openAiApiKey = process.env.OPENAI_API_KEY as string;
 const HelloWorld = Type.String({
   description: 'The magical words!'
 });
@@ -40,6 +39,7 @@ const healthcheck: FastifyPluginCallback<HealthcheckOptions> = (
 
 export interface ApiOptions {
   title: string;
+  openAiApiKey: string;
 }
 
 export default (opts: ApiOptions) => {
@@ -69,7 +69,7 @@ export default (opts: ApiOptions) => {
 
   api.register(apiService, {
     prefix: '/api/v1',
-    openAiApiKey: openAiApiKey as string
+    openAiApiKey: opts.openAiApiKey
   });
 
   return api;
