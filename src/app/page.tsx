@@ -35,8 +35,8 @@ export default function Page() {
   };
 
   return (
-    <div className="w-screen h-screen glassmorphism">
-      <Card radius="none" className=" bg-transparent w-full h-full">
+    <div className="w-screen h-screen glassmorphism ">
+      <Card radius="none" className="w-full h-full bg-transparent">
         <div className=" flex">
           <Button isIconOnly className="bg-transparen">
             <IconTrash color="purple" size={24} />
