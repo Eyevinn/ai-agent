@@ -25,7 +25,6 @@ export default function Page() {
         method: 'POST',
         body: JSON.stringify({ userMessage: input })
       });
-      console.log('response', response);
       if (response.ok) {
         setResponse(await response.text());
       }

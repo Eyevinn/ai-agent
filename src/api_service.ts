@@ -11,7 +11,6 @@ const apiService: FastifyPluginCallback<ApiServiceOptions> = (
   next
 ) => {
   fastify.post('/message', async (request, reply) => {
-    console.log('request.body', request.body);
     const userMessage = request.body as string;
     await chat(reply, userMessage);
   });
@@ -21,6 +20,9 @@ const apiService: FastifyPluginCallback<ApiServiceOptions> = (
 
   async function chat(reply: FastifyReply, userMessage: string) {
     const openai = opts.openAiApiKey;
+    if (!openai) {
+      throw new Error('OpenAI API key is required');
+    }
 
     const client = new OpenAI({ apiKey: openai });
     reply.raw.setHeader('Content-Type', 'text/event-stream');

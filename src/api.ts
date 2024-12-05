@@ -6,9 +6,8 @@ import { TypeBoxTypeProvider } from '@fastify/type-provider-typebox';
 import { Static, Type } from '@sinclair/typebox';
 import { FastifyPluginCallback } from 'fastify';
 import apiService from './api_service';
-import dotnev from 'dotenv';
-dotnev.config();
 
+const openAiApiKey = process.env.OPENAI_API_KEY as string;
 const HelloWorld = Type.String({
   description: 'The magical words!'
 });
@@ -67,16 +66,10 @@ export default (opts: ApiOptions) => {
 
   api.register(healthcheck, { prefix: '/api', title: opts.title });
   // register other API routes here
-  console.log('process.env.OPENAI_API_KEY', process.env.OPENAI_API_KEY);
 
-  if (!process.env.OPENAI_API_KEY) {
-    throw new Error(
-      'The OPENAI_API_KEY environment variable is missing or empty; either provide it, or instantiate the OpenAI client with an apiKey option, like new OpenAI({ apiKey: "My API Key" }).'
-    );
-  }
   api.register(apiService, {
     prefix: '/api/v1',
-    openAiApiKey: process.env.OPENAI_API_KEY
+    openAiApiKey: openAiApiKey as string
   });
 
   return api;
