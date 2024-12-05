@@ -7,8 +7,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`antialiased dark text-foreground bg-background`}>
+    <html lang="en" className="w-screen h-screen bg-transparent">
+      <body className={`antialiased dark text-foreground `}>
         <Providers>{children}</Providers>
       </body>
     </html>
