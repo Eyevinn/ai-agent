@@ -6,15 +6,13 @@
   White-label AI chat service ready to be embedded on your site
   <br />
   <br />
-  :book: <b><a href="https://eyevinn.github.io/{{repo-name}}/">Read the documentation (github pages)</a></b> :eyes:
-  <br />
 </div>
 
 <div align="center">
 <br />
 
-[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/eyevinn/{{repo-name}}/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
-[![made with hearth by Eyevinn](https://img.shields.io/badge/made%20with%20%E2%99%A5%20by-Eyevinn-59cbe8.svg?style=flat-square)](https://github.com/eyevinn)
+[![PRs welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/Eyevinn/ai-agent/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+[![made with hearth by Eyevinn](https://img.shields.io/badge/made%20with%20%E2%99%A5%20by-Eyevinn-59cbe8.svg?style=flat-square)](https://github.com/Eyevinn)
 [![Slack](http://slack.streamingtech.se/badge.svg)](http://slack.streamingtech.se)
 
 </div>
@@ -31,9 +29,23 @@ Open AI account
 % npm install
 ```
 
+Start service
+
+```
+% OPENAI_API_KEY=<api-key> npm start
+```
+
+Service is available on http://localhost:8000
+
+The default port 8000 can be overridden with the environment variable `PORT`
+
+```
+% PORT=8080 OPENAI_API_KEY=<api-key> npm start
+```
+
 ## Development
 
-Start API service
+Start backend as usual
 
 ```
 % OPENAI_API_KEY=<api-key> npm start
