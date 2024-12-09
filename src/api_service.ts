@@ -37,7 +37,7 @@ const apiService: FastifyPluginCallback<ApiServiceOptions> = (
       ]
     });
 
-    return reply.send(chatCompletion.choices[0].message.content);
+    return reply.send(chatCompletion.choices[0].message.content.assistantMessage);
   }
 
   next();
