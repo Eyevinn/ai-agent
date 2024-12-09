@@ -37,7 +37,11 @@ const apiService: FastifyPluginCallback<ApiServiceOptions> = (
       ]
     });
 
-    return reply.send(chatCompletion.choices[0].message.content.assistantMessage);
+    if (chatCompletion.choices[0].message.content) {
+      const content = JSON.parse(chatCompletion.choices[0].message.content);
+      return reply.send(content.assistantMessage);
+    }
+    return reply.send('empty response');
   }
 
   next();
