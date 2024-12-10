@@ -36,12 +36,12 @@ const apiService: FastifyPluginCallback<ApiServiceOptions> = (
         { role: 'user', content: userMessage }
       ]
     });
-
     if (chatCompletion.choices[0].message.content) {
-      const content = JSON.parse(chatCompletion.choices[0].message.content);
-      return reply.send(content.assistantMessage);
+      const content = chatCompletion.choices[0].message.content;
+
+      return reply.send(content);
     }
-    return reply.send('empty response');
+    return reply.send('I am sorry, I do not understand.');
   }
 
   next();
