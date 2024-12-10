@@ -1,4 +1,5 @@
 import './globals.css';
+
 import { Providers } from './providers';
 
 export default function RootLayout({
@@ -7,8 +8,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="w-screen h-screen bg-transparent">
-      <body className={`antialiased dark text-foreground `}>
+    <html lang="en">
+      <body className="antialiased text-foreground background">
         <Providers>{children}</Providers>
       </body>
     </html>

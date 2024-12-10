@@ -25,6 +25,7 @@ export default function Page() {
         method: 'POST',
         body: JSON.stringify({ userMessage: input })
       });
+      setInput('');
       if (response.ok) {
         setResponse(await response.text());
       }
@@ -35,9 +36,9 @@ export default function Page() {
   };
 
   return (
-    <div className="w-screen h-screen glassmorphism ">
-      <Card radius="none" className="w-full h-full bg-transparent">
-        <div className=" flex">
+    <div className="w-screen h-screen">
+      <Card radius="none" className="w-full h-full  bg-transparent">
+        <div className="flex">
           <Button isIconOnly className="bg-transparen">
             <IconTrash color="purple" size={24} />
           </Button>
@@ -46,10 +47,12 @@ export default function Page() {
           </CardHeader>
         </div>
         <Spacer y={1} />
-        <CardBody className="flex-grow text-white font-bold p-3">
+        <CardBody className="flex-grow dark:text-white light:text-purple-600 font-bold ">
           {loading && <p>Loading...</p>}
           {error && <p>{error}</p>}
-          {response && <p>{response}</p>}
+          <div className="m-4">
+            {response && <p className="flex-shrink m-5  ">{response}</p>}
+          </div>
         </CardBody>
         <div className="flex flex-grow items-center p-3 overflow-scroll">
           <Textarea
@@ -62,8 +65,11 @@ export default function Page() {
           />
           <Button
             onClick={fetchChatCompletion}
+            isDisabled={loading}
             isIconOnly
-            className="bg-secondary py-1  mr-0 mb-2 ml-2 h-[30px] w-[32px] rounded-full"
+            isLoading={loading}
+            color={loading ? 'default' : 'secondary'}
+            className="py-1  mr-0 mb-2 ml-2 h-[30px] w-[32px] rounded-full"
           >
             <IconArrowUp color="gray" size={30} stroke={3} />
           </Button>
